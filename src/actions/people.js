@@ -7,7 +7,7 @@ export const FETCH_ALL_PEOPLE = "FETCH_ALL_PEOPLE"
 
 
 
-export const fetchAllCharacters= () => (dispatch) => {
+export const fetchAllPeople = () => (dispatch) => {
     request
         .get(`${baseUrl}/people/`)
         .then(response => dispatch({
