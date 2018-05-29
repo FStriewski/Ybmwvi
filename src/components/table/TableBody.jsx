@@ -24,11 +24,12 @@ class TableBody extends React.Component {
     render() {
         const { people } = this.props
         if (!people.results) return ""
+
         return (
             <div className="tableContainer">
 
                 <table >
-                    <thead class="tableHeader">
+                    <thead className="tableHeader">
                         <tr>
                             <td >Name</td>
                             <td >Gender</td>
@@ -37,14 +38,19 @@ class TableBody extends React.Component {
                         </tr>
                     </thead>
                     <tbody className="tableBody">
-                        {people.results.map(i =>
-                            <tr>
-                                <td ><Link to={`/people/${i.name}`}>{i.name}</Link></td>
-                                <td >{i.gender}</td>
-                                <td >{i.species}</td>
-                                <td >{i.homeworld}</td>
-
-                            </tr>
+                        {people.results.map(i => {
+                            let id = i.url.slice(28, 29)
+                            console.log(i.url)
+                            console.log(id)
+                            return (
+                                <tr>
+                                    <td ><Link to={`/people/${id}`}>{i.name}</Link></td>
+                                    <td >{i.gender}</td>
+                                    <td >{i.species}</td>
+                                    <td >{i.homeworld}</td>
+                                </tr>
+                            )
+                        }
                         )}
                     </tbody>
                 </table>
@@ -53,10 +59,12 @@ class TableBody extends React.Component {
     }
 }
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = (state, props) => ({
 
     people: state.people
 
 })
 
 export default connect(mapStateToProps, { fetchAllPeople })(TableBody)
+
+// https://swapi.co/api/people/
