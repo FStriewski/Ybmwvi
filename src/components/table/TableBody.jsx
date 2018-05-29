@@ -25,20 +25,20 @@ class TableBody extends React.Component {
         if (!people.results) return ""
         return (
             <div className="tableBodyContainer">
-                {people.results.map(i =>
 
                     <table >
                         <tbody>
+                {people.results.map(i =>
                             <tr>
-                                <th >{i.name}</th>
-                                <th >{i.gender}</th>
-                                <th >{i.species}</th>
-                                <th >{i.homeworld}</th>
+                                <td >{i.name}</td>
+                                <td >{i.gender}</td>
+                                <td >{i.species}</td>
+                                <td >{i.homeworld}</td>
 
                             </tr>
+                    )}
                         </tbody>
                     </table>
-                )}
             </div>
         )
     }
