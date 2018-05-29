@@ -22,31 +22,50 @@
     color: #3f454c;
     border: solid 1px #3f454c;
     border-spacing: 0;
-   
 }
-
 
 .tableContainer table {
-		/* display: block; */
+    /* display: block; */
     overflow: auto;
     width: 100%;
-	
 }
-.tableContainer thead {
-		/* display: block; */
-    overflow: auto;
 
-	
+.tableContainer thead {
+    /* display: block; */
+    overflow: auto;
 }
+
 .tableContainer tbody {
-	/* display: block;  */
-	height: 400px;
-	overflow: auto;
-	
+    /* display: block;  */
+    height: 400px;
+    overflow: auto;
 }
 
 .tableContainer tbody td {
     border: solid 1px #3f454c;
     color: #333333;
     padding: 1em;
+}
+
+.filterBarContainer {
+    font-family: helvetica neue, Helvetica, Arial, sans-serif;
+    background-color: #32383e;
+    color: white;
+    padding: 1%;
+        cursor:pointer;
+}
+
+#wrapper {
+    display: none;
+    
+}
+
+#filters {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    min-height: 2.4em;
+    padding: 1%;
+    background-color: #3f454c;
+
 }
