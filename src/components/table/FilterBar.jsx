@@ -1,4 +1,5 @@
 import React from 'react'
+import NameFilter from './NameFilter'
 import '../../styles/topBarUnit.css'
 
 
@@ -23,7 +24,7 @@ export default class FilterBar extends React.Component {
                 <div id="wrapper">
                     <div id="filters">
                         <div className="textFilter">
-                            <input type="text" onChange={this.handleChange} />
+                            <NameFilter />
                         </div>
                         <div className="genderFilter">
                             <select name="genderSelect" onChange={this.handleChange}>
