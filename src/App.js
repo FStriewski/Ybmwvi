@@ -19,7 +19,7 @@ class App extends Component {
           <Route exact path="/" render={() => <Redirect to="/people" />} />
 
           <Route exact path="/people" component={TableUnit} />
-          <Route exact path="/people/:id" component={DetailsUnit} />
+          <Route exact path="/people/:name" component={DetailsUnit} />
 
         </div>
       </Router>

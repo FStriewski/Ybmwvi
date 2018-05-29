@@ -1,7 +1,7 @@
 import React from 'react'
 import DetailsCard from './DetailsCard'
 
-export default class TableUnit extends React.Component {
+export default class DetailsUnit extends React.Component {
 
     render() {
         return (

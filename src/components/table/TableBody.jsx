@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { fetchAllPeople } from '../../actions/people'
+import { Link } from 'react-router-dom'
 import '../../styles/tableUnit.css'
 
 
@@ -30,7 +31,7 @@ class TableBody extends React.Component {
                     <tbody>
                         {people.results.map(i =>
                             <tr>
-                                <td >{i.name}</td>
+                                <td ><Link to={`/people/${i.name}`}>{i.name}</Link></td>
                                 <td >{i.gender}</td>
                                 <td >{i.species}</td>
                                 <td >{i.homeworld}</td>
