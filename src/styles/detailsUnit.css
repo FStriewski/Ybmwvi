@@ -1,0 +1,8 @@
+.detailsCardContainer {
+    min-width: 15%;
+    height: 350px;
+    margin: 3%;
+    margin-left: 10%;
+    margin-right: 50%;
+    border: 1px solid black;
+}
