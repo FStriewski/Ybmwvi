@@ -29,9 +29,9 @@ export const fetchCharacter = (url) => (dispatch) => {
         .catch(error => console.error(error))
 }
 
-export const fetchMorePeople = () => (dispatch) => {
+export const fetchMorePeople = (url) => (dispatch) => {
     request
-        .get(`${baseUrl}/people/`)
+        .get(`${url}`)
         .then(response => dispatch({
             type: FETCH_MORE_PEOPLE,
             payload: response.body

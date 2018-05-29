@@ -21,8 +21,8 @@ class TableBody extends React.Component {
         this.props.fetchAllPeople()
     }
 
-    loadMore = () => {
-        this.props.fetchMorePeople()
+    loadMore = (url) => {
+        this.props.fetchMorePeople(url)
     }
 
     render() {
@@ -58,7 +58,7 @@ class TableBody extends React.Component {
                         )}
                     </tbody>
                 </table>
-                <button onClick={this.loadMore}> More...</button>
+                <button onClick={() => this.loadMore(people.next)}> More...</button>
             </div>
         )
     }
