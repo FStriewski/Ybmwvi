@@ -25,7 +25,7 @@ class TableBody extends React.Component {
         const { people } = this.props
         if (!people.results) return ""
         return (
-            <div className="tableBodyContainer">
+            <div className="tableContainer">
 
                 <table >
                     <thead class="tableHeader">
@@ -36,7 +36,7 @@ class TableBody extends React.Component {
                             <td >Homeworld</td>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody className="tableBody">
                         {people.results.map(i =>
                             <tr>
                                 <td ><Link to={`/people/${i.name}`}>{i.name}</Link></td>
@@ -51,7 +51,6 @@ class TableBody extends React.Component {
             </div>
         )
     }
-
 }
 
 const mapStateToProps = (state) => ({

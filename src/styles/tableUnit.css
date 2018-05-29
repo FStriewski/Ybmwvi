@@ -1,4 +1,4 @@
-.tableHeaderContainer {
+.tableHeader {
     min-height: 2.4em;
     font-size: 0.8em;
     padding: 1%;
@@ -9,35 +9,43 @@
     border-spacing: 0;
 }
 
-.tableHeaderContainer tbody td {
+/* .tableHeaderContainer tbody td {
     border: solid 1px #3f454c;
     color: #333333;
     padding-right: 200px;
-}
+} */
 
-.tableBodyContainer {
+.tableContainer {
     font-size: 0.8em;
     font-family: helvetica neue, Helvetica, Arial, sans-serif;
     background-color: white;
     color: #3f454c;
     border: solid 1px #3f454c;
     border-spacing: 0;
+   
 }
 
 
-.tableBodyContainer thead {
-	display: table;
+.tableContainer table {
+		/* display: block; */
+    overflow: auto;
+    width: 100%;
+	
+}
+.tableContainer thead {
+		/* display: block; */
+    overflow: auto;
+
+	
+}
+.tableContainer tbody {
+	/* display: block;  */
+	height: 400px;
 	overflow: auto;
-	width: 100%
-}
-.tableBodyContainer tbody {
-	display: block;
-	height: 262px;
-	overflow: auto;
-	width: 100%
+	
 }
 
-.tableBodyContainer tbody td {
+.tableContainer tbody td {
     border: solid 1px #3f454c;
     color: #333333;
     padding: 1em;
