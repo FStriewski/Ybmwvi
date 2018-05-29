@@ -28,6 +28,14 @@ class TableBody extends React.Component {
             <div className="tableBodyContainer">
 
                 <table >
+                    <thead class="tableHeader">
+                        <tr>
+                            <td >Name</td>
+                            <td >Gender</td>
+                            <td >Species</td>
+                            <td >Homeworld</td>
+                        </tr>
+                    </thead>
                     <tbody>
                         {people.results.map(i =>
                             <tr>
