@@ -1,5 +1,6 @@
 
 import { FETCH_ALL_PEOPLE, FETCH_CHARACTER, FETCH_MORE_PEOPLE } from '../actions/people'
+import { FILTER_BY_NAME } from '../actions/filter'
 
 
 
@@ -15,6 +16,8 @@ export default function (state = [], action) {
                 next: action.payload.next
             };
         case FETCH_CHARACTER:
+            return action.payload
+        case FILTER_BY_NAME:
             return action.payload
         default: return state
     }
