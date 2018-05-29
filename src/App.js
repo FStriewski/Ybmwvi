@@ -10,13 +10,21 @@ import './App.css';
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <TopBar />
-        <FilterBar />
-        <DetailsCard />
-        {/* <TableHeader />
+      <Router>
+        <div className="App">
+
+          <Route exact path="/" render={() => <Redirect to="/people" />} />
+
+          <Route exact path="/people" component={} />
+          <Route exact path="/people/:id" component={} />
+
+          {/* <TopBar />
+          <FilterBar />
+          <DetailsCard />
+          <TableHeader />
         <TableBody/> */}
-      </div>
+        </div>
+      </Router>
     );
   }
 }
