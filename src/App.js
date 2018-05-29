@@ -2,9 +2,10 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom'
 import TopBar from './components/topbar/TopBar'
 import FilterBar from './components/topbar/FilterBar'
-import TableHeader from './components/table/TableHeader'
-import TableBody from './components/table/TableBody'
-import DetailsCard from './components/details/DetailsCard'
+import TableUnit from './components/table/TableUnit'
+import DetailsUnit from './components/details/DetailsUnit'
+
+
 import './App.css';
 
 class App extends Component {
@@ -12,17 +13,14 @@ class App extends Component {
     return (
       <Router>
         <div className="App">
+          <TopBar />
+          <FilterBar />
 
           <Route exact path="/" render={() => <Redirect to="/people" />} />
 
-          <Route exact path="/people" component={} />
-          <Route exact path="/people/:id" component={} />
+          <Route exact path="/people" component={TableUnit} />
+          <Route exact path="/people/:id" component={DetailsUnit} />
 
-          {/* <TopBar />
-          <FilterBar />
-          <DetailsCard />
-          <TableHeader />
-        <TableBody/> */}
         </div>
       </Router>
     );
