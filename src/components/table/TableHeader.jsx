@@ -9,7 +9,14 @@ export default class TableHeader extends React.Component {
         return (
 
             <div className="tableHeaderContainer">
-               Header
+                <table >
+                    <tr>
+                        <th >1</th>
+                        <th >2</th>
+                        <th>3</th>
+                        <th>4</th>
+                    </tr>
+                </table>
             </div>
         )
     }
