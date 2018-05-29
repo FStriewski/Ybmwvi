@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom'
 import TopBar from './components/topbar/TopBar'
-import FilterBar from './components/topbar/FilterBar'
 import TableUnit from './components/table/TableUnit'
 import DetailsUnit from './components/details/DetailsUnit'
 
@@ -14,7 +13,7 @@ class App extends Component {
       <Router>
         <div className="App">
           <TopBar />
-          <FilterBar />
+         
 
           <Route exact path="/" render={() => <Redirect to="/people" />} />
 
