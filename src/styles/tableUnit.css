@@ -1,0 +1,7 @@
+.tableHeaderContainer {
+    min-height: 2.4em;
+    padding: 1%;
+    font-family: helvetica neue, Helvetica, Arial, sans-serif;
+    background-color: white;
+    color: #3f454c;
+}
