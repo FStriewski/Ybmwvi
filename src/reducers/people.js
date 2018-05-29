@@ -1,5 +1,5 @@
 
-import { FETCH_ALL_PEOPLE, FETCH_CHARACTER } from '../actions/people'
+import { FETCH_ALL_PEOPLE, FETCH_CHARACTER, FETCH_MORE_PEOPLE } from '../actions/people'
 
 
 
@@ -7,6 +7,8 @@ export default function (state = [], action) {
 
     switch (action.type) {
         case FETCH_ALL_PEOPLE:
+            return action.payload
+        case FETCH_MORE_PEOPLE:
             return action.payload
         case FETCH_CHARACTER:
             return action.payload

@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import { fetchAllPeople } from '../../actions/people'
+import { fetchAllPeople, fetchMorePeople } from '../../actions/people'
 import { Link } from 'react-router-dom'
 import '../../styles/tableUnit.css'
 
@@ -19,6 +19,10 @@ class TableBody extends React.Component {
 
     componentWillMount() {
         this.props.fetchAllPeople()
+    }
+
+    loadMore = () => {
+        this.props.fetchMorePeople()
     }
 
     render() {
@@ -43,8 +47,8 @@ class TableBody extends React.Component {
                             console.log(i.url)
                             console.log(id)
                             return (
-                                <tr>
-                                    <td ><Link to={`/people/${id}`}>{i.name}</Link></td>
+                                <tr key={i.name}>
+                                    <td ><Link to={`/people/${i.id}`}>{i.name}</Link></td>
                                     <td >{i.gender}</td>
                                     <td >{i.species}</td>
                                     <td >{i.homeworld}</td>
@@ -54,6 +58,7 @@ class TableBody extends React.Component {
                         )}
                     </tbody>
                 </table>
+                <button onClick={this.loadMore}> More...</button>
             </div>
         )
     }
@@ -65,6 +70,6 @@ const mapStateToProps = (state, props) => ({
 
 })
 
-export default connect(mapStateToProps, { fetchAllPeople })(TableBody)
+export default connect(mapStateToProps, { fetchAllPeople, fetchMorePeople })(TableBody)
 
 // https://swapi.co/api/people/

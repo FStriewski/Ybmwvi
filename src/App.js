@@ -13,8 +13,7 @@ class App extends Component {
       <Router>
         <div className="App">
           <TopBar />
-         
-
+        
           <Route exact path="/" render={() => <Redirect to="/people" />} />
 
           <Route exact path="/people" component={TableUnit} />

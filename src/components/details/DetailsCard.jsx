@@ -7,15 +7,14 @@ import '../../styles/detailsUnit.css'
 
  class DetailsCard extends React.Component {
 
-    componentWillMount(props) {
-
-        console.log("props " + JSON.stringify(props))
+     componentWillMount(props) {
+        console.log(props)
         //  this.props.fetchCharacter(this.props.match.params.id)
     }
 
     render() {
-        // const { people } = this.props
-        // if (!people) return null
+         const { people } = this.props
+         if (!people) return null
         return (
 
             <div className="detailsCardContainer">
