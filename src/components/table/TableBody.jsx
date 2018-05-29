@@ -34,6 +34,7 @@ class TableBody extends React.Component {
                                 <td >{i.gender}</td>
                                 <td >{i.species}</td>
                                 <td >{i.homeworld}</td>
+
                             </tr>
                         )}
                     </tbody>

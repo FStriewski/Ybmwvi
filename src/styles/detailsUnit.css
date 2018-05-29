@@ -1,0 +1,10 @@
+.detailsCardContainer {
+    min-height: 2.4em;
+    font-size: 0.8em;
+    padding: 1%;
+    font-family: helvetica neue, Helvetica, Arial, sans-serif;
+    background-color: white;
+    color: #3f454c;
+    border: solid 1px #3f454c;
+    border-spacing: 0;
+}

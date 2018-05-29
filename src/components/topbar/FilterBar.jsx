@@ -11,7 +11,6 @@ export default class FilterBar extends React.Component {
 
     render() {
         return (
-
             <div className="filterBarContainer">
                 <div className="textFilter">
                     <input type="text" onChange={this.handleChange} />
