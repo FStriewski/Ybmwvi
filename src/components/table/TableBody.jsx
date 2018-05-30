@@ -33,7 +33,18 @@ class TableBody extends React.Component {
         const { people, species, planets } = this.props
         if (!people.results) return ""
 
-        let filteredNames = (this.props.filter.term === "") ? people.results : people.results.filter(i => i.name.toLowerCase().includes(this.props.filter))
+        let filteredNames = (this.props.filter.term === "" )
+         ? people.results 
+         : people.results.filter(i => i.name.toLowerCase().includes(this.props.filter.term))
+
+        
+
+
+        let filteredGender = (this.props.filter.gender === "all")
+        ? filteredNames
+            : filteredNames.filter(i => i.gender.toLowerCase() === (this.props.filter.gender))
+
+        console.log(filteredGender)
 
         return (
             <div className="tableContainer">
@@ -49,7 +60,7 @@ class TableBody extends React.Component {
                         </tr>
                     </thead>
                     <tbody className="tableBody">
-                        {filteredNames
+                        {filteredGender
                             .map(i => {
                                 let id = i.url.replace(/^\D+/g, ''
                                 )

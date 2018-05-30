@@ -1,25 +1,24 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { filterByName } from '../../actions/filter'
+import { filterByName, filterByGender } from '../../actions/filter'
 import '../../styles/topBarUnit.css'
 
 
-
- class FilterBar extends React.Component {
+class FilterBar extends React.Component {
 
     toggleVisibility = () => {
         let el = document.getElementById("wrapper");
         (el.style.display !== 'block') ? el.style.display = 'block' : el.style.display = 'none';
-
     }
 
-    handleChange = (e) => {
+    handleName= (e) => {
         this.props.filterByName(e.target.value.toLowerCase())
-
     }
 
+    handleGender = (e) => {
+        this.props.filterByGender(e.target.value.toLowerCase())
+    }
 
-    handleClick = () => { }
 
     render() {
         return (
@@ -28,14 +27,14 @@ import '../../styles/topBarUnit.css'
                 <div id="wrapper">
                     <div id="filters">
                         <div className="textFilter">
-                            <input type="text" placeholder="search" onChange={this.handleChange} />
+                            <input type="text" placeholder="search" onChange={this.handleName} />
                         </div>
                         <div className="genderFilter">
-                            <select name="genderSelect" onChange={this.handleChange}>
+                            <select name="genderSelect" onChange={this.handleGender}>
                                 <option value="all">All</option>
-                                <option value="alien">Alien</option>
-                                <option value="female" >Female</option>
+                                <option value="female">Female</option>
                                 <option value="male">Male</option>
+                                <option value="n/a">n/a</option>
                             </select>
                         </div>
                         <div className="speciesFilter">
@@ -50,11 +49,10 @@ import '../../styles/topBarUnit.css'
             </div>
         )
     }
-
 }
 
 const mapStateToProps = (state, props) => ({
     people: state.people,
 })
 
-export default connect(mapStateToProps, { filterByName })(FilterBar)
+export default connect(mapStateToProps, { filterByName, filterByGender })(FilterBar)
