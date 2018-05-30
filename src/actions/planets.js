@@ -6,6 +6,7 @@ export const FETCH_ALL_PLANETS = "FETCH_ALL_PLANETS"
 
 
 // This is not the best approach but will do for now.
+// Breaks on missing ressources
 export const fetchAllPlanets = () => (dispatch) => {
 
     Promise.all([
@@ -14,17 +15,18 @@ export const fetchAllPlanets = () => (dispatch) => {
         request.get(`${baseUrl}/planets/?page=3`),
         request.get(`${baseUrl}/planets/?page=4`),
         request.get(`${baseUrl}/planets/?page=5`),
+        request.get(`${baseUrl}/planets/?page=6`),
+        request.get(`${baseUrl}/planets/?page=7`)
     ])
         .then(response => {
-
             const flatPlanets = {}
-            const result = [
-                ...response[0].body.results,
-                ...response[1].body.results,
-                ...response[3].body.results,
-                ...response[4].body.results,
-                ...response[5].body.results
-            ]
+            const result = []
+
+            response.map(i =>
+                (i.body)
+                    ? result.push(...i.body.results)
+                    : null
+            )
 
             result.map(i =>
                 (!flatPlanets.hasOwnProperty(i.url))
@@ -36,8 +38,6 @@ export const fetchAllPlanets = () => (dispatch) => {
                 type: FETCH_ALL_PLANETS,
                 payload: flatPlanets
             })
-        }
-        )
+        })
         .catch(error => console.error(error))
-
 }

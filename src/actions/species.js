@@ -14,28 +14,26 @@ export const fetchAllSpecies = () => (dispatch) => {
         request.get(`${baseUrl}/species/?page=3`),
         request.get(`${baseUrl}/species/?page=4`),
     ])
-    .then(response => {
-
+        .then(response => {
             const flatSpecies = {}
-            const result = [
-                ...response[0].body.results,
-                ...response[1].body.results,
-                ...response[2].body.results,
-                ...response[3].body.results
-            ]
+            const result = []
 
-            result.map(i => 
-                (!flatSpecies.hasOwnProperty(i.url)) 
-                ? flatSpecies[i.url] = i.name 
-                : null
+            response.map(i =>
+                (i.body)
+                    ? result.push(...i.body.results)
+                    : null
+            )
+
+            result.map(i =>
+                (!flatSpecies.hasOwnProperty(i.url))
+                    ? flatSpecies[i.url] = i.name
+                    : null
             )
 
             dispatch({
                 type: FETCH_ALL_SPECIES,
                 payload: flatSpecies
             })
-        }
-    )
-    .catch(error => console.error(error))
-
+        })
+        .catch(error => console.error(error))
 }

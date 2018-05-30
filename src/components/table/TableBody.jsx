@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { fetchAllPeople, fetchMorePeople } from '../../actions/people'
 import { fetchAllSpecies } from '../../actions/species'
+import { fetchAllPlanets } from '../../actions/planets'
 import { Link } from 'react-router-dom'
 import '../../styles/tableUnit.css'
 
@@ -21,6 +22,7 @@ class TableBody extends React.Component {
     componentWillMount() {
         this.props.fetchAllPeople()
         this.props.fetchAllSpecies()
+        this.props.fetchAllPlanets()
     }
 
     loadMore = (url) => {
@@ -28,7 +30,7 @@ class TableBody extends React.Component {
     }
 
     render() {
-        const { people, species } = this.props
+        const { people, species, planets } = this.props
         if (!people.results) return ""
 
         let filteredNames = (this.props.filter === "") ? people.results : people.results.filter(i => i.name.toLowerCase().includes(this.props.filter))
@@ -56,7 +58,8 @@ class TableBody extends React.Component {
                                         <td ><Link to={`/people/${id}`}>{i.name}</Link></td>
                                         <td >{i.gender}</td>
                                         <td >{species[i.species] || "unknown"}</td>
-                                        <td >{i.homeworld}</td>
+                                        <td >{planets[i.homeworld] || "unknown"}</td>
+                                        
                                     </tr>
                                 )
                             })
@@ -73,8 +76,9 @@ const mapStateToProps = (state, props) => ({
 
     people: state.people,
     species: state.species,
+    planets: state.planets,
     filter: state.filter
 
 })
 
-export default connect(mapStateToProps, { fetchAllPeople, fetchMorePeople, fetchAllSpecies })(TableBody)
+export default connect(mapStateToProps, { fetchAllPeople, fetchMorePeople, fetchAllSpecies, fetchAllPlanets })(TableBody)
