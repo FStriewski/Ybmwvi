@@ -20,7 +20,7 @@ class FilterBar extends React.Component {
     }
 
     handleSpecies= (e) => {
-        this.props.filterBySpecies(e.target.value.toLowerCase())
+        this.props.filterBySpecies(e.target.value)
     }
 
     render() {
@@ -32,7 +32,6 @@ class FilterBar extends React.Component {
         for (let s in species) {
             speciesNames.push(species[s])
         }
-
 
         return (
             <div >

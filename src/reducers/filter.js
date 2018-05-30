@@ -4,7 +4,7 @@ import { FILTER_BY_NAME, FILTER_BY_GENDER, FILTER_BY_SPECIES } from '../actions/
 const initalState = {
     term: "",
     gender: "all",
-    species: "all",
+    race: "all",
 }
 
 export default function (state = initalState, action) {
@@ -15,7 +15,7 @@ export default function (state = initalState, action) {
         case FILTER_BY_GENDER:
             return { ...state, gender: action.payload }
         case FILTER_BY_SPECIES:
-            return { ...state, species: action.payload }
+            return { ...state, race: action.payload }
         default: return state
     }
 }

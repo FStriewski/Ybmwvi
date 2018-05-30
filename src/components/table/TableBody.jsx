@@ -29,9 +29,15 @@ class TableBody extends React.Component {
         this.props.fetchMorePeople(url)
     }
 
+    decodeSpecies = (obj, val) => {
+        return Object.keys(obj).find(key => obj[key] === val);
+    }
+
     render() {
         const { people, species, planets } = this.props
         if (!people.results) return ""
+        if (!species) return ""
+     //   console.log(species)
 
         let filteredNames = (this.props.filter.term === "" )
          ? people.results 
@@ -40,6 +46,32 @@ class TableBody extends React.Component {
         let filteredGender = (this.props.filter.gender === "all")
         ? filteredNames
             : filteredNames.filter(i => i.gender.toLowerCase() === (this.props.filter.gender))
+
+        console.log(typeof this.props.filter.race)
+
+        let filteredSpecies = (this.props.filter.race === "all")
+            ? filteredGender
+            : filteredGender.filter(i => i.species[0] == this.decodeSpecies(species, this.props.filter.race))
+            
+            
+            //filteredNames.filter(i => i.species[0] === this.decodeSpecies(species, this.props.filter.race) )
+        //         let url = this.decodeSpecies(species, i)
+            
+            
+            
+            
+  
+        
+        
+        
+        
+        // filteredNames
+        //     : console.log(this.decodeSpecies(species, i))
+        //     filteredNames.filter(i => {
+        //         let url = this.decodeSpecies(species, i)
+        //         console.log(typeof url)
+                //  i.species.toLowerCase() === (this.props.filter.species)
+         
 
         return (
             <div className="tableContainer">
@@ -54,7 +86,7 @@ class TableBody extends React.Component {
                         </tr>
                     </thead>
                     <tbody className="tableBody">
-                        {filteredGender
+                        {filteredSpecies
                             .map(i => {
                                 let id = i.url.replace(/^\D+/g, ''
                                 )
