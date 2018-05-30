@@ -7,32 +7,27 @@
     color: #3f454c;
     border: solid 1px #3f454c;
     border-spacing: 0;
-    
 }
 
 .tableContainer {
     font-size: 0.8em;
     font-family: helvetica neue, Helvetica, Arial, sans-serif;
     color: #ffe300;
-    border-collapse:collapse;
+    border-collapse: collapse;
     background-color: #333333;
 }
 
 .tableContainer table {
-    /* display: block; */
     overflow: auto;
     width: 100%;
-    border-collapse:collapse;
-     
+    border-collapse: collapse;
 }
 
 .tableContainer thead {
-    /* display: block; */
     overflow: auto;
 }
 
 .tableContainer tbody {
-    /* display: block;  */
     height: 400px;
     overflow: auto;
 }
@@ -46,7 +41,6 @@
 .filterBarContainer {
     font-family: helvetica neue, Helvetica, Arial, sans-serif;
     background-color: #32383e;
-    /* background-color: #32383e; */
     color: white;
     padding: 1%;
     cursor: pointer;
@@ -60,14 +54,14 @@
 #filters {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    text-align: center;
+    justify-content: center;
     padding: 1%;
     background-color: #32383e;
     border: solid 1px #c3c3c3;
 }
 
-#filterButton{
-  
+#filterButton {
     padding: 0.5%;
 }
 
@@ -88,6 +82,7 @@
 .tableContainer a:active {
     color: #ffe10083;
 }
+
 .tableContainer button {
     border: 1px solid #ffe300;
     background-color: Transparent;
