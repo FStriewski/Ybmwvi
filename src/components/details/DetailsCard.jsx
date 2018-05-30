@@ -17,7 +17,16 @@ import '../../styles/detailsUnit.css'
 
         return (
             <div className="detailsCardContainer">
-               {people.name}
+               <h4>{people.name}</h4>
+    
+    
+
+                    <p> The subject is of <span>{people.gender}</span> sex, approximately <span>{people.height}</span> in height and <span>{people.mass}</span> in mass. It has  <span>{people.skin_color}</span> skin and <span>{people.hair_color} </span>hair.</p>
+                        
+                    <p> Estimated year of birth: <span>{people.birth_year}</span></p>
+
+
+
             </div>
         )
     }
