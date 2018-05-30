@@ -33,7 +33,7 @@ class TableBody extends React.Component {
         const { people, species, planets } = this.props
         if (!people.results) return ""
 
-        let filteredNames = (this.props.filter === "") ? people.results : people.results.filter(i => i.name.toLowerCase().includes(this.props.filter))
+        let filteredNames = (this.props.filter.term === "") ? people.results : people.results.filter(i => i.name.toLowerCase().includes(this.props.filter))
 
         return (
             <div className="tableContainer">
@@ -60,7 +60,7 @@ class TableBody extends React.Component {
                                         <td >{i.gender}</td>
                                         <td >{species[i.species] || "unknown"}</td>
                                         <td >{planets[i.homeworld] || "unknown"}</td>
-                                        <td ><Link to={`/people/${id}`}>--> Profile</Link></td>
+                                        <td ><Link to={`/people/${id}`}> &#x21D2;...Profile</Link></td>
                                     </tr>
                                 )
                             })

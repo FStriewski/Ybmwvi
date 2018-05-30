@@ -8,14 +8,12 @@ import '../../styles/topBarUnit.css'
  class FilterBar extends React.Component {
 
     toggleVisibility = () => {
-
         let el = document.getElementById("wrapper");
         (el.style.display !== 'block') ? el.style.display = 'block' : el.style.display = 'none';
 
     }
 
     handleChange = (e) => {
-        console.log(e.target.value)
         this.props.filterByName(e.target.value.toLowerCase())
 
     }
@@ -26,11 +24,11 @@ import '../../styles/topBarUnit.css'
     render() {
         return (
             <div >
-                <div className="filterBarContainer" onClick={this.toggleVisibility}> Filter </div>
+                <div className="filterBarContainer" onClick={this.toggleVisibility}> &#x21D5; Filter </div>
                 <div id="wrapper">
                     <div id="filters">
                         <div className="textFilter">
-                            <input type="text" onChange={this.handleChange} />
+                            <input type="text" placeholder="search" onChange={this.handleChange} />
                         </div>
                         <div className="genderFilter">
                             <select name="genderSelect" onChange={this.handleChange}>
