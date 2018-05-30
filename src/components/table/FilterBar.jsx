@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { filterByName, filterByGender } from '../../actions/filter'
+import { filterByName, filterByGender, filterBySpecies } from '../../actions/filter'
 import '../../styles/topBarUnit.css'
 
 
@@ -19,11 +19,13 @@ class FilterBar extends React.Component {
         this.props.filterByGender(e.target.value.toLowerCase())
     }
 
+    handleSpecies= (e) => {
+        this.props.filterBySpecies(e.target.value.toLowerCase())
+    }
 
     render() {
         const {  species } = this.props
         if (!species) return ""
-        console.log(species)
 
         let speciesNames=[]
         speciesNames.push("All")
@@ -31,7 +33,6 @@ class FilterBar extends React.Component {
             speciesNames.push(species[s])
         }
 
-        console.log(speciesNames)
 
         return (
             <div >
@@ -56,9 +57,6 @@ class FilterBar extends React.Component {
                             )}
                             </select>
                         </div>
-                        <div className="planetFilter">
-                            <button type="text" onClick={this.handleClick} > Planets </button>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -71,4 +69,4 @@ const mapStateToProps = (state, props) => ({
     species: state.species,
 })
 
-export default connect(mapStateToProps, { filterByName, filterByGender })(FilterBar)
+export default connect(mapStateToProps, { filterByName, filterByGender, filterBySpecies })(FilterBar)

@@ -1,9 +1,10 @@
 
-import { FILTER_BY_NAME, FILTER_BY_GENDER } from '../actions/filter'
+import { FILTER_BY_NAME, FILTER_BY_GENDER, FILTER_BY_SPECIES } from '../actions/filter'
 
 const initalState = {
     term: "",
     gender: "all",
+    species: "all",
 }
 
 export default function (state = initalState, action) {
@@ -13,6 +14,8 @@ export default function (state = initalState, action) {
             return {...state, term: action.payload }
         case FILTER_BY_GENDER:
             return { ...state, gender: action.payload }
+        case FILTER_BY_SPECIES:
+            return { ...state, species: action.payload }
         default: return state
     }
 }
