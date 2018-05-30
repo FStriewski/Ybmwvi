@@ -37,49 +37,18 @@ class TableBody extends React.Component {
         const { people, species, planets } = this.props
         if (!people.results) return ""
         if (!species) return ""
-     //   console.log(species)
 
-        // let filteredNames = (this.props.filter.term === "" )
-        //  ? people.results 
-        //  : people.results.filter(i => i.name.toLowerCase().includes(this.props.filter.term))
-
-        // let filteredGender = (this.props.filter.gender === "all")
-        // ? filteredNames
-        //     : filteredNames.filter(i => i.gender.toLowerCase() === (this.props.filter.gender))
-
-        // console.log(typeof this.props.filter.race)
-
-        // let filteredSpecies = (this.props.filter.race === "all")
-        //     ? filteredGender
-        //     : filteredGender.filter(i => i.species[0] == this.decodeSpecies(species, this.props.filter.race))
             
+        let filteredNames =
+            people.results
+                .filter(i =>
+                    (this.props.filter.term === "") ? true : i.name.toLowerCase().includes(this.props.filter.term)
+                ).filter(i =>
+                    (this.props.filter.gender === "all") ? true : i.gender.toLowerCase() === (this.props.filter.gender)
+                ).filter(i =>
+                    (this.props.filter.race === "all") ? true : i.species[0] === this.decodeSpecies(species, this.props.filter.race)
+                )
             
-            //filteredNames.filter(i => i.species[0] === this.decodeSpecies(species, this.props.filter.race) )
-        //         let url = this.decodeSpecies(species, i)
-            
-          let filteredNames =   
-        people.results
-        .filter(i => 
-            (this.props.filter.term === "") ? true : i.name.toLowerCase().includes(this.props.filter.term)
-        ).filter( i => 
-            (this.props.filter.gender === "all") ? true : i.gender.toLowerCase() === (this.props.filter.gender) 
-        ).filter(i => 
-                (this.props.filter.race === "all") ? true : i.species[0] === this.decodeSpecies(species, this.props.filter.race)
-        )
-            
-  
-        
-        
-        
-        
-        // filteredNames
-        //     : console.log(this.decodeSpecies(species, i))
-        //     filteredNames.filter(i => {
-        //         let url = this.decodeSpecies(species, i)
-        //         console.log(typeof url)
-                //  i.species.toLowerCase() === (this.props.filter.species)
-         
-
         return (
             <div className="tableContainer">
                 <table >
