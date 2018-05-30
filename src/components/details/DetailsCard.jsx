@@ -1,12 +1,15 @@
 import React from 'react'
-import { fetchCharacter } from '../../actions/people'
+import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
+import { fetchCharacter } from '../../actions/people'
 import { Link } from 'react-router-dom'
 import '../../styles/detailsUnit.css'
 
-
-
  class DetailsCard extends React.Component {
+     static propTypes = {
+         fetchCharacter: PropTypes.func.isRequired,
+     }
+
 
      componentWillMount(props) {
            this.props.fetchCharacter(this.props.match.params.id)
@@ -27,7 +30,7 @@ import '../../styles/detailsUnit.css'
                 <br />
 
                 <footer className="detailsFooter">
-                    <button className="backButton" type="button"><Link to="/people">Back </Link></button>
+                    <Link to="/people"><button className="backButton" type="button">Back </button></Link>
                 </footer>
             </div>
         )

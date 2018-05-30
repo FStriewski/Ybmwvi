@@ -9,15 +9,12 @@ import '../../styles/tableUnit.css'
 
 
 class TableBody extends React.Component {
-    // static propTypes = {
-    //     people: PropTypes.arrayOf(PropTypes.shape({
-    //         name: PropTypes.string.isRequired,
-    //         gender: PropTypes.string.isRequired,
-    //         species: PropTypes.string,
-    //         homeworld: PropTypes.string.isRequired
-    //     })).isRequired
-    // }
-
+    static propTypes = {
+        fetchAllPeople: PropTypes.func.isRequired,
+        fetchAllSpecies: PropTypes.func.isRequired,
+        fetchAllPlanets: PropTypes.func.isRequired,
+        fetchMorePeople: PropTypes.func.isRequired,
+    }
 
     componentWillMount() {
         this.props.fetchAllPeople()
@@ -29,15 +26,27 @@ class TableBody extends React.Component {
         this.props.fetchMorePeople(url)
     }
 
+    decodeSpecies = (obj, val) => {
+        return Object.keys(obj).find(key => obj[key] === val);
+    }
+
     render() {
         const { people, species, planets } = this.props
         if (!people.results) return ""
-
-        let filteredNames = (this.props.filter === "") ? people.results : people.results.filter(i => i.name.toLowerCase().includes(this.props.filter))
-
+        if (!species) return ""
+            
+        let filteredNames =
+            people.results
+                .filter(i =>
+                    (this.props.filter.term === "") ? true : i.name.toLowerCase().includes(this.props.filter.term)
+                ).filter(i =>
+                    (this.props.filter.gender === "all") ? true : i.gender.toLowerCase() === (this.props.filter.gender)
+                ).filter(i =>
+                    (this.props.filter.race === "all") ? true : i.species[0] === this.decodeSpecies(species, this.props.filter.race)
+                )
+            
         return (
             <div className="tableContainer">
-
                 <table >
                     <thead className="tableHeader">
                         <tr>
@@ -45,6 +54,7 @@ class TableBody extends React.Component {
                             <td >Gender</td>
                             <td >Species</td>
                             <td >Homeworld</td>
+                            <td >Link</td>
                         </tr>
                     </thead>
                     <tbody className="tableBody">
@@ -59,6 +69,7 @@ class TableBody extends React.Component {
                                         <td >{i.gender}</td>
                                         <td >{species[i.species] || "unknown"}</td>
                                         <td >{planets[i.homeworld] || "unknown"}</td>
+                                        <td ><Link to={`/people/${id}`}> &#x21D2;...Profile</Link></td>
                                     </tr>
                                 )
                             })
