@@ -39,26 +39,33 @@ class TableBody extends React.Component {
         if (!species) return ""
      //   console.log(species)
 
-        let filteredNames = (this.props.filter.term === "" )
-         ? people.results 
-         : people.results.filter(i => i.name.toLowerCase().includes(this.props.filter.term))
+        // let filteredNames = (this.props.filter.term === "" )
+        //  ? people.results 
+        //  : people.results.filter(i => i.name.toLowerCase().includes(this.props.filter.term))
 
-        let filteredGender = (this.props.filter.gender === "all")
-        ? filteredNames
-            : filteredNames.filter(i => i.gender.toLowerCase() === (this.props.filter.gender))
+        // let filteredGender = (this.props.filter.gender === "all")
+        // ? filteredNames
+        //     : filteredNames.filter(i => i.gender.toLowerCase() === (this.props.filter.gender))
 
-        console.log(typeof this.props.filter.race)
+        // console.log(typeof this.props.filter.race)
 
-        let filteredSpecies = (this.props.filter.race === "all")
-            ? filteredGender
-            : filteredGender.filter(i => i.species[0] == this.decodeSpecies(species, this.props.filter.race))
+        // let filteredSpecies = (this.props.filter.race === "all")
+        //     ? filteredGender
+        //     : filteredGender.filter(i => i.species[0] == this.decodeSpecies(species, this.props.filter.race))
             
             
             //filteredNames.filter(i => i.species[0] === this.decodeSpecies(species, this.props.filter.race) )
         //         let url = this.decodeSpecies(species, i)
             
-            
-            
+          let filteredNames =   
+        people.results
+        .filter(i => 
+            (this.props.filter.term === "") ? true : i.name.toLowerCase().includes(this.props.filter.term)
+        ).filter( i => 
+            (this.props.filter.gender === "all") ? true : i.gender.toLowerCase() === (this.props.filter.gender) 
+        ).filter(i => 
+                (this.props.filter.race === "all") ? true : i.species[0] === this.decodeSpecies(species, this.props.filter.race)
+        )
             
   
         
@@ -86,7 +93,7 @@ class TableBody extends React.Component {
                         </tr>
                     </thead>
                     <tbody className="tableBody">
-                        {filteredSpecies
+                        {filteredNames
                             .map(i => {
                                 let id = i.url.replace(/^\D+/g, ''
                                 )
