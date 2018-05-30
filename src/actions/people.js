@@ -21,7 +21,7 @@ export const fetchAllPeople = () => (dispatch) => {
 export const fetchCharacter = (url) => (dispatch) => {
     console.log(url)
     request
-        .get(`${url}`)
+        .get(`${baseUrl}/people/${url}`)
         .then(response => dispatch({
             type: FETCH_CHARACTER,
             payload: response.body

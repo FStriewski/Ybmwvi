@@ -8,17 +8,16 @@ import '../../styles/detailsUnit.css'
  class DetailsCard extends React.Component {
 
      componentWillMount(props) {
-        console.log(props)
-        //  this.props.fetchCharacter(this.props.match.params.id)
+           this.props.fetchCharacter(this.props.match.params.id)
     }
 
     render() {
-         const { people } = this.props
-         if (!people) return null
-        return (
+        const { people } = this.props
+        if (!people) return null
 
+        return (
             <div className="detailsCardContainer">
-               details
+               {people.name}
             </div>
         )
     }

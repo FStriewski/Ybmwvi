@@ -52,14 +52,13 @@ class TableBody extends React.Component {
                             .map(i => {
                                 let id = i.url.replace(/^\D+/g, ''
                                 )
-                                
+
                                 return (
                                     <tr key={i.name}>
                                         <td ><Link to={`/people/${id}`}>{i.name}</Link></td>
                                         <td >{i.gender}</td>
                                         <td >{species[i.species] || "unknown"}</td>
                                         <td >{planets[i.homeworld] || "unknown"}</td>
-                                        
                                     </tr>
                                 )
                             })
