@@ -37,18 +37,12 @@ class TableBody extends React.Component {
          ? people.results 
          : people.results.filter(i => i.name.toLowerCase().includes(this.props.filter.term))
 
-        
-
-
         let filteredGender = (this.props.filter.gender === "all")
         ? filteredNames
             : filteredNames.filter(i => i.gender.toLowerCase() === (this.props.filter.gender))
 
-        console.log(filteredGender)
-
         return (
             <div className="tableContainer">
-
                 <table >
                     <thead className="tableHeader">
                         <tr>

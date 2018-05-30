@@ -21,9 +21,21 @@ class FilterBar extends React.Component {
 
 
     render() {
+        const {  species } = this.props
+        if (!species) return ""
+        console.log(species)
+
+        let speciesNames=[]
+        speciesNames.push("All")
+        for (let s in species) {
+            speciesNames.push(species[s])
+        }
+
+        console.log(speciesNames)
+
         return (
             <div >
-                <div className="filterBarContainer" onClick={this.toggleVisibility}> &#x21D5; Filter </div>
+                <div className="filterBarContainer" onClick={this.toggleVisibility}> <span id="filterButton">&#x21D5; Filter &#x21D5; </span></div>
                 <div id="wrapper">
                     <div id="filters">
                         <div className="textFilter">
@@ -37,9 +49,12 @@ class FilterBar extends React.Component {
                                 <option value="n/a">n/a</option>
                             </select>
                         </div>
-                        <div className="speciesFilter">
-                            <button type="text" onClick={this.handleClick} > Species </button>
-
+                        <div className="speciesFilter">Species:
+                            <select name="genderSelect" onChange={this.handleSpecies}>
+                             {speciesNames.map( s => 
+                                 <option key={s} value={s}>{s}</option>
+                            )}
+                            </select>
                         </div>
                         <div className="planetFilter">
                             <button type="text" onClick={this.handleClick} > Planets </button>
@@ -53,6 +68,7 @@ class FilterBar extends React.Component {
 
 const mapStateToProps = (state, props) => ({
     people: state.people,
+    species: state.species,
 })
 
 export default connect(mapStateToProps, { filterByName, filterByGender })(FilterBar)

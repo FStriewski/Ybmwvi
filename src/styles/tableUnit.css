@@ -46,9 +46,11 @@
 .filterBarContainer {
     font-family: helvetica neue, Helvetica, Arial, sans-serif;
     background-color: #32383e;
+    /* background-color: #32383e; */
     color: white;
     padding: 1%;
     cursor: pointer;
+    text-align: center
 }
 
 #wrapper {
@@ -59,9 +61,14 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-  
     padding: 1%;
-    background-color: #3f454c;
+    background-color: #32383e;
+    border: solid 1px #c3c3c3;
+}
+
+#filterButton{
+  
+    padding: 0.5%;
 }
 
 .tableContainer a:link {
