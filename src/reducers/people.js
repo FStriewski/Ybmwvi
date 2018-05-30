@@ -3,6 +3,7 @@ import { FETCH_ALL_PEOPLE, FETCH_CHARACTER, FETCH_MORE_PEOPLE } from '../actions
 
 
 
+
 export default function (state = [], action) {
 
     switch (action.type) {
@@ -16,6 +17,7 @@ export default function (state = [], action) {
             };
         case FETCH_CHARACTER:
             return action.payload
+
         default: return state
     }
 }

@@ -26,8 +26,11 @@ class TableBody extends React.Component {
     }
 
     render() {
-        const { people } = this.props
+        const { people, filter } = this.props
         if (!people.results) return ""
+
+
+        let filteredNames = (this.props.filter === "") ? people.results : people.results.filter(i => i.name.toLowerCase().includes(this.props.filter))
 
         return (
             <div className="tableContainer">
@@ -42,10 +45,11 @@ class TableBody extends React.Component {
                         </tr>
                     </thead>
                     <tbody className="tableBody">
-                        {people.results.map(i => {
+                        {filteredNames
+                        .map(i => {
+                            //needs to be a regex
                             let id = i.url.slice(28, 29)
-                            console.log(i.url)
-                            console.log(id)
+         
                             return (
                                 <tr key={i.name}>
                                     <td ><Link to={`/people/${i.id}`}>{i.name}</Link></td>
@@ -66,7 +70,8 @@ class TableBody extends React.Component {
 
 const mapStateToProps = (state, props) => ({
 
-    people: state.people
+    people: state.people,
+    filter: state.filter
 
 })
 
