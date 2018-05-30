@@ -50,8 +50,8 @@ class TableBody extends React.Component {
                     <tbody className="tableBody">
                         {filteredNames
                             .map(i => {
-                                //needs to be a regex
-                                let id = i.url.slice(28, 29)
+                                let id = i.url.replace(/^\D+/g, ''
+                                )
 
                                 return (
                                     <tr key={i.name}>
@@ -59,7 +59,6 @@ class TableBody extends React.Component {
                                         <td >{i.gender}</td>
                                         <td >{species[i.species] || "unknown"}</td>
                                         <td >{planets[i.homeworld] || "unknown"}</td>
-                                        
                                     </tr>
                                 )
                             })
