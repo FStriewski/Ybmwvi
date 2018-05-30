@@ -1,10 +1,11 @@
 import React from 'react'
-import NameFilter from './NameFilter'
+import { connect } from 'react-redux'
+import { filterByName } from '../../actions/filter'
 import '../../styles/topBarUnit.css'
 
 
 
-export default class FilterBar extends React.Component {
+ class FilterBar extends React.Component {
 
     toggleVisibility = () => {
 
@@ -13,7 +14,12 @@ export default class FilterBar extends React.Component {
 
     }
 
-    handleChange = () => { }
+    handleChange = (e) => {
+        console.log(e.target.value)
+        this.props.filterByName(e.target.value.toLowerCase())
+
+    }
+
 
     handleClick = () => { }
 
@@ -24,7 +30,7 @@ export default class FilterBar extends React.Component {
                 <div id="wrapper">
                     <div id="filters">
                         <div className="textFilter">
-                            <NameFilter />
+                            <input type="text" onChange={this.handleChange} />
                         </div>
                         <div className="genderFilter">
                             <select name="genderSelect" onChange={this.handleChange}>
@@ -48,3 +54,9 @@ export default class FilterBar extends React.Component {
     }
 
 }
+
+const mapStateToProps = (state, props) => ({
+    people: state.people,
+})
+
+export default connect(mapStateToProps, { filterByName })(FilterBar)

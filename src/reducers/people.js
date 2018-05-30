@@ -1,6 +1,6 @@
 
 import { FETCH_ALL_PEOPLE, FETCH_CHARACTER, FETCH_MORE_PEOPLE } from '../actions/people'
-import { FILTER_BY_NAME } from '../actions/filter'
+
 
 
 
