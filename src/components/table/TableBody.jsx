@@ -9,15 +9,12 @@ import '../../styles/tableUnit.css'
 
 
 class TableBody extends React.Component {
-    // static propTypes = {
-    //     people: PropTypes.arrayOf(PropTypes.shape({
-    //         name: PropTypes.string.isRequired,
-    //         gender: PropTypes.string.isRequired,
-    //         species: PropTypes.string,
-    //         homeworld: PropTypes.string.isRequired
-    //     })).isRequired
-    // }
-
+    static propTypes = {
+        fetchAllPeople: PropTypes.func.isRequired,
+        fetchAllSpecies: PropTypes.func.isRequired,
+        fetchAllPlanets: PropTypes.func.isRequired,
+        fetchMorePeople: PropTypes.func.isRequired,
+    }
 
     componentWillMount() {
         this.props.fetchAllPeople()
@@ -37,7 +34,6 @@ class TableBody extends React.Component {
         const { people, species, planets } = this.props
         if (!people.results) return ""
         if (!species) return ""
-
             
         let filteredNames =
             people.results

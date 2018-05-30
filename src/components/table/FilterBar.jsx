@@ -1,10 +1,16 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import PropTypes from 'prop-types'
 import { filterByName, filterByGender, filterBySpecies } from '../../actions/filter'
 import '../../styles/topBarUnit.css'
 
 
 class FilterBar extends React.Component {
+    static propTypes = {
+        filterByName: PropTypes.func.isRequired,
+        filterByGender: PropTypes.func.isRequired,
+        filterBySpecies: PropTypes.func.isRequired,
+    }
 
     toggleVisibility = () => {
         let el = document.getElementById("wrapper");
