@@ -7,27 +7,23 @@
     color: #3f454c;
     border: solid 1px #3f454c;
     border-spacing: 0;
+    
 }
-
-/* .tableHeaderContainer tbody td {
-    border: solid 1px #3f454c;
-    color: #333333;
-    padding-right: 200px;
-} */
 
 .tableContainer {
     font-size: 0.8em;
     font-family: helvetica neue, Helvetica, Arial, sans-serif;
-    background-color: white;
-    color: #3f454c;
-    border: solid 1px #3f454c;
-    border-spacing: 0;
+    color: #ffe300;
+    border-collapse:collapse;
+    background-color: #333333;
 }
 
 .tableContainer table {
     /* display: block; */
     overflow: auto;
     width: 100%;
+    border-collapse:collapse;
+     
 }
 
 .tableContainer thead {
@@ -42,8 +38,8 @@
 }
 
 .tableContainer tbody td {
-    border: solid 1px #3f454c;
-    color: #333333;
+    border: solid 1px #ffe10083;
+    color: #ffe300;
     padding: 1em;
 }
 
@@ -52,12 +48,11 @@
     background-color: #32383e;
     color: white;
     padding: 1%;
-        cursor:pointer;
+    cursor: pointer;
 }
 
 #wrapper {
     display: none;
-    
 }
 
 #filters {
@@ -67,5 +62,31 @@
     min-height: 2.4em;
     padding: 1%;
     background-color: #3f454c;
+}
 
+.tableContainer a:link {
+    color: #ffe300;
+    text-decoration: none;
+}
+
+.tableContainer a:visited {
+    color: #ffe300;
+    text-decoration: none;
+}
+
+.tableContainer a:hover {
+    color: #ffe10083;
+}
+
+.tableContainer a:active {
+    color: #ffe10083;
+}
+.tableContainer button {
+    border: 1px solid #ffe300;
+    background-color: Transparent;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    color: #ffe300;
+    padding: .5rem 1rem;
+    font-size: .7rem;
 }

@@ -16,6 +16,7 @@ export default class TableHeader extends React.Component {
                             <td >Gender</td>
                             <td >Species</td>
                             <td >Homeworld</td>
+                            <td >Link</td>
                         </tr>
                     </tbody>
                 </table>

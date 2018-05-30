@@ -27,7 +27,7 @@ import '../../styles/detailsUnit.css'
                 <br />
 
                 <footer className="detailsFooter">
-                    <button className="backButton" type="button"><Link to="/people">Back </Link></button>
+                    <Link to="/people"><button className="backButton" type="button">Back </button></Link>
                 </footer>
             </div>
         )
