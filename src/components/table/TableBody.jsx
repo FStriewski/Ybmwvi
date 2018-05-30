@@ -28,7 +28,7 @@ class TableBody extends React.Component {
     }
 
     render() {
-        const { people, filter } = this.props
+        const { people, species } = this.props
         if (!people.results) return ""
 
         let filteredNames = (this.props.filter === "") ? people.results : people.results.filter(i => i.name.toLowerCase().includes(this.props.filter))
@@ -53,9 +53,9 @@ class TableBody extends React.Component {
 
                                 return (
                                     <tr key={i.name}>
-                                        <td ><Link to={`/people/${i.id}`}>{i.name}</Link></td>
+                                        <td ><Link to={`/people/${id}`}>{i.name}</Link></td>
                                         <td >{i.gender}</td>
-                                        <td >{i.species}</td>
+                                        <td >{species[i.species] || "unknown"}</td>
                                         <td >{i.homeworld}</td>
                                     </tr>
                                 )
