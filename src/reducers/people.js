@@ -17,8 +17,7 @@ export default function (state = [], action) {
             };
         case FETCH_CHARACTER:
             return action.payload
-        case FILTER_BY_NAME:
-            return action.payload
+
         default: return state
     }
 }
