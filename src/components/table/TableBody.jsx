@@ -52,6 +52,7 @@ class TableBody extends React.Component {
                         <tr>
                             <td >Name</td>
                             <td >Gender</td>
+                            <td >Birthyear</td>
                             <td >Species</td>
                             <td >Homeworld</td>
                             <td >Link</td>
@@ -67,6 +68,7 @@ class TableBody extends React.Component {
                                     <tr key={i.name}>
                                         <td ><Link to={`/people/${id}`}>{i.name}</Link></td>
                                         <td >{i.gender}</td>
+                                        <td >{i.birth_year}</td>
                                         <td >{species[i.species] || "unknown"}</td>
                                         <td >{planets[i.homeworld] || "unknown"}</td>
                                         <td ><Link to={`/people/${id}`}> &#x21D2;...Profile</Link></td>
