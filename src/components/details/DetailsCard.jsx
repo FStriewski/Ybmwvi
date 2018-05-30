@@ -18,21 +18,17 @@ import '../../styles/detailsUnit.css'
 
         return (
             <div className="detailsCardContainer">
-               <h4>{people.name}</h4>
-    
-                    <p> The subject is of <span>{people.gender}</span> sex, approximately <span>{people.height}</span> in height and <span>{people.mass}</span> in mass. It has  <span>{people.skin_color}</span> skin and <span>{people.hair_color} </span>hair.</p>
-                        
-                    <p> Estimated year of birth: <span>{people.birth_year}</span></p>
+                <h4>{people.name}</h4>
 
+                <p> The subject is of <span>{people.gender}</span> sex, approximately <span>{people.height}</span> in height and <span>{people.mass}</span> in mass. It has  <span>{people.skin_color}</span> skin and <span>{people.hair_color} </span>hair.</p>
 
+                <p> Estimated year of birth: <span>{people.birth_year}</span></p>
+
+                <br />
 
                 <footer className="detailsFooter">
-
-                 <button className="backButton" type="button"><Link to="/people">Back </Link></button>
-
-                    {/* <a href={this.props.url} target="_blank"><button className="backButton" type="button">Back</button></a> */}
+                    <button className="backButton" type="button"><Link to="/people">Back </Link></button>
                 </footer>
-
             </div>
         )
     }
