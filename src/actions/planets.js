@@ -6,7 +6,6 @@ export const FETCH_ALL_PLANETS = "FETCH_ALL_PLANETS"
 
 
 // This is not the best approach but will do for now.
-// Breaks on missing ressources
 export const fetchAllPlanets = () => (dispatch) => {
 
     Promise.all([
