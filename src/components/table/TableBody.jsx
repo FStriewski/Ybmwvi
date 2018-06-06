@@ -34,7 +34,7 @@ class TableBody extends React.Component {
         const { people, species, planets } = this.props
         if (!people.results) return ""
         if (!species) return ""
-            
+
         let filteredNames =
             people.results
                 .filter(i =>
@@ -44,7 +44,7 @@ class TableBody extends React.Component {
                 ).filter(i =>
                     (this.props.filter.race === "all") ? true : i.species[0] === this.decodeSpecies(species, this.props.filter.race)
                 )
-            
+
         return (
             <div className="tableContainer">
                 <table >

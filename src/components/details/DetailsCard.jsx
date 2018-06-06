@@ -5,14 +5,14 @@ import { fetchCharacter } from '../../actions/people'
 import { Link } from 'react-router-dom'
 import '../../styles/detailsUnit.css'
 
- class DetailsCard extends React.Component {
-     static propTypes = {
-         fetchCharacter: PropTypes.func.isRequired,
-     }
+class DetailsCard extends React.Component {
+    static propTypes = {
+        fetchCharacter: PropTypes.func.isRequired,
+    }
 
 
-     componentWillMount(props) {
-           this.props.fetchCharacter(this.props.match.params.id)
+    componentWillMount(props) {
+        this.props.fetchCharacter(this.props.match.params.id)
     }
 
     render() {
@@ -38,7 +38,7 @@ import '../../styles/detailsUnit.css'
 }
 
 const mapStateToProps = (state, props) => ({
-        people: state.people
+    people: state.people
 })
 
 
